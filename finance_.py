@@ -5,6 +5,10 @@ import joblib
 
 # Load the model and label encoders
 try:
+    pickle_in = open('financial_inclusion_xgboost_model.pkl', 'rb')
+    model = joblib.load(pickle_in)
+    pickle_in = open('label_encoders.pkl', 'rb')
+    label_encoders = joblib.load(pickle_in)
     model = joblib.load('financial_inclusion_xgboost_model.pkl')
     label_encoders = joblib.load('label_encoders.pkl')
 except FileNotFoundError:
